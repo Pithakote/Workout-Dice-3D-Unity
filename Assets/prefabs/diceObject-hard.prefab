@@ -247,6 +247,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8437903254071130313, guid: 21420e446c59b8646be5c62d2b79b8d1,
+        type: 3}
+      propertyPath: nameOfDice
+      value: Hard Dice
+      objectReference: {fileID: 0}
     - target: {fileID: 8740948265410665744, guid: 21420e446c59b8646be5c62d2b79b8d1,
         type: 3}
       propertyPath: m_Name

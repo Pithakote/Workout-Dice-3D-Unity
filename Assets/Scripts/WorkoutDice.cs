@@ -8,7 +8,10 @@ public class WorkoutDice : MonoBehaviour
     WorkoutDiceSide[] workoutDiceSideArray;
     [SerializeField]
     WorkoutDiceSide selectedWorkoutDiceSide;
+    [SerializeField]
+    string nameOfDice;
 
+    public string NameOfDice { get { return nameOfDice; } }
     public WorkoutDiceSide SelectedWorkoutDiceSide { get { return selectedWorkoutDiceSide; } }
     public WorkoutDiceSide FindTheCorrectSide()
     {

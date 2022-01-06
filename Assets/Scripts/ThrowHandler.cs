@@ -6,7 +6,7 @@ using Cinemachine;
 public class ThrowHandler : MonoBehaviour
 {
     [SerializeField]
-    TMP_Text workoutText;
+    TMP_Text workoutText, selectedDiceText;
     bool isThrown = false, isDiceMoving = false;
     [SerializeField]
     GameObject selectedDice, diceHolder;
@@ -38,6 +38,9 @@ public class ThrowHandler : MonoBehaviour
 
         selectedArrayNumber = Random.Range(0, workoutDiceArray.Length);
         SetDiceFromArrayActive();
+
+        selectedDiceWorkoutComponent = selectedDiceRigidbody.GetComponent<WorkoutDice>();
+        selectedDiceText.text = selectedDiceWorkoutComponent.NameOfDice;
     }
     private void FixedUpdate()
     {
@@ -79,6 +82,7 @@ public class ThrowHandler : MonoBehaviour
         }
 
         workoutDiceArray[selectedArrayNumber].gameObject.SetActive(true);
+        selectedDiceRigidbody = selectedDice.GetComponent<Rigidbody>();
     }
 
     public void NextDice()
@@ -94,6 +98,8 @@ public class ThrowHandler : MonoBehaviour
         }
 
         SetDiceFromArrayActive();
+        selectedDiceWorkoutComponent = selectedDiceRigidbody.GetComponent<WorkoutDice>();
+        selectedDiceText.text = selectedDiceWorkoutComponent.NameOfDice;
     }
 
     public void PreviousDice()
@@ -108,6 +114,8 @@ public class ThrowHandler : MonoBehaviour
             selectedArrayNumber--;
         }
         SetDiceFromArrayActive();
+        selectedDiceWorkoutComponent = selectedDiceRigidbody.GetComponent<WorkoutDice>();
+        selectedDiceText.text = selectedDiceWorkoutComponent.NameOfDice;
     }
     public void SelectDice()
     {
@@ -124,7 +132,7 @@ public class ThrowHandler : MonoBehaviour
     public void ThrowDice()
     {
         isThrown = true;
-        selectedDiceRigidbody = selectedDice.GetComponent<Rigidbody>();
+        
 
        // selectedDiceRigidbody.AddRelativeForce(new Vector3 (0,1*forceToApply,1 * forceToApply), ForceMode.Impulse);
        // selectedDiceRigidbody.AddRelativeTorque((Vector3.up) * forceToRotate, ForceMode.Impulse);
