@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using Cinemachine;
 public class ThrowHandler : MonoBehaviour
 {
+    [SerializeField]
+    TMP_Text workoutText;
     bool isThrown = false, isDiceMoving = false;
     [SerializeField]
     GameObject selectedDice;
+    WorkoutDice selectedDiceWorkoutComponent;
+    WorkoutDiceSide selectedDiceWorkoutComponentSide;
+    CinemachineVirtualCamera selectedDiceSideCamera;
     [SerializeField]
     GameObject[] workoutDiceArray;
     [SerializeField]
@@ -14,7 +20,7 @@ public class ThrowHandler : MonoBehaviour
    
 
     [SerializeField]
-    GameObject mainMenuCanavas, throwCanvas;
+    GameObject mainMenuCanavas, throwCanvas, resetCanvas;
 
     Rigidbody selectedDiceRigidbody;
     [SerializeField]
@@ -44,8 +50,19 @@ public class ThrowHandler : MonoBehaviour
         }
         if (isDiceMoving && selectedDiceRigidbody.velocity.magnitude <= 0 && selectedDiceRigidbody.angularVelocity.magnitude <= 0)
         {
-            gameManager.cameraManagerGetter.SetEndCamera(selectedDice);
+            resetCanvas.SetActive(true);
+            selectedDiceWorkoutComponent = selectedDiceRigidbody.GetComponent<WorkoutDice>();
+            selectedDiceWorkoutComponentSide = selectedDiceWorkoutComponent.FindTheCorrectSide();
+            selectedDiceSideCamera = selectedDiceWorkoutComponentSide.WorkoutInformationGetter.AssignedCamera;
+            workoutText.text = "Do " + selectedDiceWorkoutComponentSide.WorkoutInformationGetter.NameOfWorkout +
+                                " for " + selectedDiceWorkoutComponentSide.WorkoutInformationGetter.Number +
+                                " " + selectedDiceWorkoutComponentSide.WorkoutInformationGetter.TypeOfWorkout;
+
+            gameManager.cameraManagerGetter.SetEndCamera(selectedDiceSideCamera);
             gameManager.cameraManagerGetter.SwitchPripritiesVirtualCameras(gameManager.cameraManagerGetter.EndVirtualCamera, gameManager.cameraManagerGetter.DefaultVirtualCamera);
+
+            isDiceMoving = false;
+            isThrown = false;
         }
     }
     void SetDiceFromArrayActive()
@@ -106,7 +123,11 @@ public class ThrowHandler : MonoBehaviour
         isThrown = true;
         selectedDiceRigidbody = selectedDice.GetComponent<Rigidbody>();
 
-        selectedDiceRigidbody.AddRelativeForce((Vector3.forward + Vector3.up) * forceToApply, ForceMode.Impulse);
-        selectedDiceRigidbody.AddRelativeTorque((Vector3.up) * forceToRotate, ForceMode.Impulse);
+       // selectedDiceRigidbody.AddRelativeForce(new Vector3 (0,1*forceToApply,1 * forceToApply), ForceMode.Impulse);
+       // selectedDiceRigidbody.AddRelativeTorque((Vector3.up) * forceToRotate, ForceMode.Impulse);
+
+        selectedDiceRigidbody.AddForce((Vector3.up + Vector3.forward) * forceToApply, ForceMode.Impulse);
+        selectedDiceRigidbody.AddTorque(selectedDice.transform.up * forceToRotate, ForceMode.Impulse);
+        throwCanvas.SetActive(false);
     }
 }

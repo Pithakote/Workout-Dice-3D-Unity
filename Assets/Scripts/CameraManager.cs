@@ -14,12 +14,12 @@ public class CameraManager : MonoBehaviour
     {
         cameraLookingAtTarget.LookAt = diceTransform;
     }
-    public void SetEndCamera(GameObject workoutDice)
+    public void SetEndCamera(CinemachineVirtualCamera workoutDice)
     {
-        endVirtualCamera = workoutDice.GetComponentInChildren<CinemachineVirtualCamera>();
+        endVirtualCamera = workoutDice;
         endVirtualCamera.gameObject.SetActive(true);
        
-        SetCameraLook(endVirtualCamera, workoutDice.transform);
+       
     }
     public void SwitchPripritiesVirtualCameras(CinemachineVirtualCamera virtualCameraToActivate, CinemachineVirtualCamera virtualCameraToDeactivate)
     {
