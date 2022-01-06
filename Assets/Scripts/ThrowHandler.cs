@@ -9,7 +9,7 @@ public class ThrowHandler : MonoBehaviour
     TMP_Text workoutText;
     bool isThrown = false, isDiceMoving = false;
     [SerializeField]
-    GameObject selectedDice;
+    GameObject selectedDice, diceHolder;
     WorkoutDice selectedDiceWorkoutComponent;
     WorkoutDiceSide selectedDiceWorkoutComponentSide;
     CinemachineVirtualCamera selectedDiceSideCamera;
@@ -24,7 +24,9 @@ public class ThrowHandler : MonoBehaviour
 
     Rigidbody selectedDiceRigidbody;
     [SerializeField]
-    float forceToApply = 100f, forceToRotate = 100f;
+    float[] numberOfRotatingNumbers;
+    [SerializeField]
+    float forceToApply = 4f;
     [SerializeField]
     GameManager gameManager;
     public GameObject SelectedDice { get { return selectedDice; } }
@@ -54,6 +56,7 @@ public class ThrowHandler : MonoBehaviour
             selectedDiceWorkoutComponent = selectedDiceRigidbody.GetComponent<WorkoutDice>();
             selectedDiceWorkoutComponentSide = selectedDiceWorkoutComponent.FindTheCorrectSide();
             selectedDiceSideCamera = selectedDiceWorkoutComponentSide.WorkoutInformationGetter.AssignedCamera;
+
             workoutText.text = "Do " + selectedDiceWorkoutComponentSide.WorkoutInformationGetter.NameOfWorkout +
                                 " for " + selectedDiceWorkoutComponentSide.WorkoutInformationGetter.Number +
                                 " " + selectedDiceWorkoutComponentSide.WorkoutInformationGetter.TypeOfWorkout;
@@ -126,8 +129,19 @@ public class ThrowHandler : MonoBehaviour
        // selectedDiceRigidbody.AddRelativeForce(new Vector3 (0,1*forceToApply,1 * forceToApply), ForceMode.Impulse);
        // selectedDiceRigidbody.AddRelativeTorque((Vector3.up) * forceToRotate, ForceMode.Impulse);
 
-        selectedDiceRigidbody.AddForce((Vector3.up + Vector3.forward) * forceToApply, ForceMode.Impulse);
-        selectedDiceRigidbody.AddTorque(selectedDice.transform.up * forceToRotate, ForceMode.Impulse);
+        selectedDiceRigidbody.AddForce((Vector3.up * Random.Range(1, forceToApply + 1)  + Vector3.forward * Random.Range(1, forceToApply + 1)), ForceMode.Impulse);
+        selectedDiceRigidbody.AddTorque((selectedDice.transform.up + selectedDice.transform.forward + selectedDice.transform.right) * numberOfRotatingNumbers[Random.Range(0, numberOfRotatingNumbers.Length)], ForceMode.Impulse);
         throwCanvas.SetActive(false);
+    }
+
+    public void ResetDice()
+    {
+        selectedDice.transform.position = diceHolder.transform.position;     
+        
+        gameManager.cameraManagerGetter.SwitchPripritiesVirtualCameras(gameManager.cameraManagerGetter.DefaultVirtualCamera, gameManager.cameraManagerGetter.EndVirtualCamera);
+        gameManager.cameraManagerGetter.SetCameraLook(gameManager.cameraManagerGetter.DefaultVirtualCamera, diceHolder.transform);
+
+        mainMenuCanavas.gameObject.SetActive(true);
+        resetCanvas.SetActive(false);
     }
 }

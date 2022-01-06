@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: cb6cd86620f004844a4b70c19688c88d, type: 3}
+  materialTexture: {fileID: 2800000, guid: 26751857e5ed4a845a92cb92cba16fcc, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: 43c699cc5f10f6a49afb335a29dfb968, type: 3}
+  materialTexture: {fileID: 2800000, guid: 91c31aa3be3675e4da9eaac5f5ee73e4, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: bb4d7368dc381c34ab770b5a6300a8a4, type: 3}
+  materialTexture: {fileID: 2800000, guid: a75e43f18e37e9944b2b47911956511d, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
@@ -800,7 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: 54e4308634ec5a741b7f94728bc55248, type: 3}
+  materialTexture: {fileID: 2800000, guid: c29628d03fb82704bab0dcdf6be97c0d, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: 9ca281ac9acb1ef498c0887e34b23ab3, type: 3}
+  materialTexture: {fileID: 2800000, guid: 8af106f84a3ca3a4a86526a06ff94c2d, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
@@ -1131,7 +1131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: 2e24def8a1a98be41b0d4673dbc8df7a, type: 3}
+  materialTexture: {fileID: 2800000, guid: ea1823f21b382584b896b666758197f6, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: 272c14d32cd9b8c499a73562ee0286c6, type: 3}
+  materialTexture: {fileID: 2800000, guid: e96402ca80d6ad64d88849c98f6b81fa, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
@@ -1516,7 +1516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: 28fa4e0aab1d24649af311446acd7684, type: 3}
+  materialTexture: {fileID: 2800000, guid: fb6b4421514d3a9428391c6ad7629378, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
@@ -1646,7 +1646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: b6f96dcf09345b240a7ac8d840d0e159, type: 3}
+  materialTexture: {fileID: 2800000, guid: c168c254898b3c64698791435e31f3a1, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
@@ -2981,7 +2981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: 58d8e3cf906cd294a919d6c335e32478, type: 3}
+  materialTexture: {fileID: 2800000, guid: 0010be39e6428da428f31b038be3535e, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
@@ -3130,7 +3130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: 029ff10a4d4e91a4ba8c3f196c895ca2, type: 3}
+  materialTexture: {fileID: 2800000, guid: 6faa7bd2214fd6a488eed1ae38e8a974, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
@@ -3692,7 +3692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 630b9599a4ac3e244836e88b44b5413f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialTexture: {fileID: 2800000, guid: ed2e9762cfd2ef64ba60e33189d25e6b, type: 3}
+  materialTexture: {fileID: 2800000, guid: 1d9d04b6819c0c2459ac8fe0966b6f29, type: 3}
   workoutInformation:
     nameOfWorkout: 
     number: 0
