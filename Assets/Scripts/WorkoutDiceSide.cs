@@ -42,6 +42,7 @@ public class WorkoutDiceSide : MonoBehaviour
 
         if (objectMaterial != null)
             objectMaterial.SetTexture("_BaseMap",materialTexture);
+        objectMaterial.SetTexture("_EmissionMap", materialTexture);
     }
 
 }
