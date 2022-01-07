@@ -44,8 +44,8 @@ public class ThrowHandler : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Debug.Log("The velocity magnitude is: " + selectedDiceRigidbody.velocity.magnitude);
-        Debug.Log("The angular velocity magnitude is: " + selectedDiceRigidbody.angularVelocity.magnitude);
+       // Debug.Log("The velocity magnitude is: " + selectedDiceRigidbody.velocity.magnitude);
+       // Debug.Log("The angular velocity magnitude is: " + selectedDiceRigidbody.angularVelocity.magnitude);
         if (isThrown == false)
             return;
 

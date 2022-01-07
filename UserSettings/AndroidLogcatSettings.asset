@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "NNCEPZ7DYDBUEIO7",
         "name": "com.DefaultCompany.WorkoutDice3D",
-        "processId": 20510,
+        "processId": 27912,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -12,24 +12,36 @@
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "com.DefaultCompany.WorkoutDice3D",
             "processId": 20200,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "com.DefaultCompany.WorkoutDice3D",
             "processId": 18199,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "com.DefaultCompany.WorkoutDice3D",
             "processId": 19473,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "com.DefaultCompany.WorkoutDice3D",
             "processId": 20510,
+            "exited": true
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "net.oneplus.launcher",
+            "processId": 32409,
+            "exited": false
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.DefaultCompany.WorkoutDice3D",
+            "processId": 27912,
             "exited": false
         }
     ],
