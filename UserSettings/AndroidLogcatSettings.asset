@@ -1,37 +1,13 @@
 {
     "m_SelectedDeviceId": "NNCEPZ7DYDBUEIO7",
     "m_SelectedPackage": {
-        "deviceId": "NNCEPZ7DYDBUEIO7",
-        "name": "com.DefaultCompany.WorkoutDice3D",
-        "processId": 29322,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "com.DefaultCompany.WorkoutDice3D",
-            "processId": 20200,
-            "exited": true
-        },
-        {
-            "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "com.DefaultCompany.WorkoutDice3D",
-            "processId": 18199,
-            "exited": true
-        },
-        {
-            "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "com.DefaultCompany.WorkoutDice3D",
-            "processId": 19473,
-            "exited": true
-        },
-        {
-            "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "com.DefaultCompany.WorkoutDice3D",
-            "processId": 20510,
-            "exited": true
-        },
         {
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "net.oneplus.launcher",
@@ -48,19 +24,25 @@
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "tv.twitch.android.app",
             "processId": 25091,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "com.DefaultCompany.WorkoutDice3D",
             "processId": 27187,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "com.DefaultCompany.WorkoutDice3D",
             "processId": 29322,
-            "exited": false
+            "exited": true
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.DefaultCompany.WorkoutDice3D",
+            "processId": 32543,
+            "exited": true
         }
     ],
     "m_Tags": {

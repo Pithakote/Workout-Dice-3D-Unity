@@ -42,16 +42,17 @@ public class MobileNotifications : MonoBehaviour
         notification.Title = workoutNotifications[notificationIndex].NotificationTitle;
         notification.Text = workoutNotifications[notificationIndex].NotificationDescription;
         notification.ShowTimestamp = true;
-        notification.FireTime = System.DateTime.Now.AddHours(12);
+        notification.FireTime = System.DateTime.Now.AddSeconds(15);
 
-        var id = AndroidNotificationCenter.SendNotification(notification, "channel_id");
+        AndroidNotificationCenter.SendNotification(notification, "channel_id");
+       // var id = AndroidNotificationCenter.SendNotification(notification, "channel_id");
 
         //if the script has run and a message is already scheduled, cancel it and re-schedule another message
-        if (AndroidNotificationCenter.CheckScheduledNotificationStatus(id) == NotificationStatus.Scheduled)
-        {
-            AndroidNotificationCenter.CancelAllNotifications();
-            AndroidNotificationCenter.SendNotification(notification, "channel_id");
-        }
+        //if (AndroidNotificationCenter.CheckScheduledNotificationStatus(id) == NotificationStatus.Scheduled)
+        //{
+        //    AndroidNotificationCenter.CancelAllNotifications();
+        //    AndroidNotificationCenter.SendNotification(notification, "channel_id");
+        //}
     }
 
     // Update is called once per frame
