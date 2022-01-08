@@ -17,7 +17,7 @@ public class Options : MonoBehaviour
     GameObject exercisingGuy;
 
     [SerializeField]
-    GameObject mainMenuCanvas, optionsCanvas;
+    GameObject mainMenuCanvas, optionsCanvas, creditsCanvas;
 
     private void Start()
     {
@@ -49,5 +49,20 @@ public class Options : MonoBehaviour
     {
         mainMenuCanvas.SetActive(false);
         optionsCanvas.SetActive(true);
+    }
+    public void GoToOptionsFromCredits()
+    {
+        optionsCanvas.SetActive(true);
+        creditsCanvas.SetActive(false);
+    }
+    public void GoToCredits()
+    {
+        optionsCanvas.SetActive(false);
+        creditsCanvas.SetActive(true);
+    }
+
+    public void CreditsOpenURL(string urlString)
+    {
+        Application.OpenURL(urlString);
     }
 }
