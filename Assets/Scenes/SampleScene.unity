@@ -415,7 +415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -31.89, y: 58}
+  m_AnchoredPosition: {x: -31.89, y: 200}
   m_SizeDelta: {x: 250, y: 158.73}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &65412079
@@ -1081,7 +1081,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 58}
+  m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 250, y: 158.73}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &125738804
@@ -1450,7 +1450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 83.4}
+  m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 251.2, y: 117.08}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &248979850
@@ -1629,7 +1629,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 31.890015, y: 58}
+  m_AnchoredPosition: {x: 31.890015, y: 200}
   m_SizeDelta: {x: 250, y: 158.73}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &264994514
@@ -1759,7 +1759,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 58}
+  m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 250, y: 158.73}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &270329718
@@ -5296,7 +5296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 58}
+  m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 250, y: 158.73}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1396342204
@@ -5679,6 +5679,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1538718252}
+  - component: {fileID: 1538718253}
   m_Layer: 0
   m_Name: notificationsManager
   m_TagString: Untagged
@@ -5700,6 +5701,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1538718253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538718251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737bd385a30500c4892cbc707e282518, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  workoutNotifications:
+  - NotificationTitle: Ready for a quick and easy workout?
+    NotificationDescription: Get your workout clothes on and let the dice decide
+      your workout!
+  - NotificationTitle: Beat your record!
+    NotificationDescription: Get the dice rolling!
 --- !u!1 &1539413065
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "NNCEPZ7DYDBUEIO7",
         "name": "com.DefaultCompany.WorkoutDice3D",
-        "processId": 27912,
+        "processId": 29322,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -42,6 +42,24 @@
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "com.DefaultCompany.WorkoutDice3D",
             "processId": 27912,
+            "exited": true
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "tv.twitch.android.app",
+            "processId": 25091,
+            "exited": false
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.DefaultCompany.WorkoutDice3D",
+            "processId": 27187,
+            "exited": false
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.DefaultCompany.WorkoutDice3D",
+            "processId": 29322,
             "exited": false
         }
     ],
