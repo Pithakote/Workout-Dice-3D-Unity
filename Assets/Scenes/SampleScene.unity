@@ -1138,6 +1138,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1109411736}
+        m_MethodName: PlayAd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &125738805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4751,6 +4762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33c888667f79474482ff437647d7fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfTimesAdHasRun: 0
   testMode: 1
 --- !u!4 &1109411737
 Transform:

@@ -10,6 +10,8 @@ public class AdsManager : MonoBehaviour
     string gameID = "4549060";
 #endif
     [SerializeField]
+    int numberOfTimesAdHasRun = 0;
+    [SerializeField]
     bool testMode = true;
     // Start is called before the first frame update
     void Start()
@@ -20,9 +22,30 @@ public class AdsManager : MonoBehaviour
 
     public void PlayAd()
     {
-        if (Advertisement.IsReady("Custom_Interstitial"))
+        if (numberOfTimesAdHasRun >= 2)
         {
-            Advertisement.Show("Custom_Interstitial");
+            Debug.Log("Ad has run for more than 2 times. current run is: " + numberOfTimesAdHasRun );
+            numberOfTimesAdHasRun = 0;
+        }
+        else
+        {
+            
+            //40% chance of playing the ad
+            if (Random.Range(1, 100 + 1) <= 40)
+            {
+                numberOfTimesAdHasRun++;
+                Debug.Log("Ad has run for less than 3 times. current run is: " + numberOfTimesAdHasRun);
+                Debug.Log("Ad is running");
+                
+                if (Advertisement.IsReady("Custom_Interstitial"))
+                {
+                    Advertisement.Show("Custom_Interstitial");
+                }
+            }
+            else
+            {
+                Debug.Log("Ad is not running");
+            }
         }
     }
 
