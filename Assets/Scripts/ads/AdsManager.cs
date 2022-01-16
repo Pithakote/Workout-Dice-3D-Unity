@@ -31,7 +31,7 @@ public class AdsManager : MonoBehaviour
         {
             
             //40% chance of playing the ad
-            if (Random.Range(1, 100 + 1) <= 40)
+            if (Random.Range(1, 100 + 1) <= 20)
             {
                 numberOfTimesAdHasRun++;
                 Debug.Log("Ad has run for less than 3 times. current run is: " + numberOfTimesAdHasRun);

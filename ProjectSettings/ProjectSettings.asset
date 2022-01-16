@@ -178,7 +178,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.momointeractive.workoutdice3d
   buildNumber: {}
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 30
   AndroidPreferredInstallLocation: 0

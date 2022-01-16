@@ -6,6 +6,7 @@ public class OptionsData
 {
     public bool isAudioPlaying;
     public bool isGuyExercising;
+    public string savedTime, savedDate;
 }
 public class Options : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class Options : MonoBehaviour
 
     private void Start()
     {
-        jsonFile.LoadFromJson();
+        //jsonFile.LoadFromJson();
+        //jsonFile.LoadCloudData();
     }
     public void ToggleMusic(bool tog)
     {
@@ -41,7 +43,8 @@ public class Options : MonoBehaviour
 
     public void GoBack()
     {
-        jsonFile.SaveToJson();
+       // jsonFile.SaveToJson();
+        jsonFile.SaveToCloud();
         mainMenuCanvas.SetActive(true);
         optionsCanvas.SetActive(false);
     }

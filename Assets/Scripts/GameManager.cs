@@ -6,13 +6,15 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     CameraManager cameraManager;
-
+    [SerializeField]
+    JsonReadWriteSystem saveSystem;
     private static GameManager  instance, duplicateInstance;
 
     [SerializeField]
     ThrowHandler throwHandler;
 
     public CameraManager cameraManagerGetter { get { return cameraManager; } }
+    public JsonReadWriteSystem SaveSystem { get { return saveSystem; } }
     public static GameManager Instance
     {
         get

@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "NNCEPZ7DYDBUEIO7",
         "name": "com.momointeractive.workoutdice3d",
-        "processId": 18724,
+        "processId": 10475,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -16,44 +16,44 @@
         },
         {
             "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "tv.twitch.android.app",
-            "processId": 25091,
-            "exited": true
-        },
-        {
-            "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "com.DefaultCompany.WorkoutDice3D",
-            "processId": 27187,
-            "exited": true
-        },
-        {
-            "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "com.DefaultCompany.WorkoutDice3D",
-            "processId": 29322,
-            "exited": true
-        },
-        {
-            "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "com.DefaultCompany.WorkoutDice3D",
-            "processId": 32543,
-            "exited": true
-        },
-        {
-            "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "com.momointeractive.workoutdice3d",
-            "processId": 13771,
+            "processId": 23156,
             "exited": true
         },
         {
             "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "com.momointeractive.workoutdice3d",
-            "processId": 15972,
+            "name": "com.oneplus.deskclock",
+            "processId": 13285,
             "exited": false
         },
         {
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "com.momointeractive.workoutdice3d",
-            "processId": 18724,
+            "processId": 29571,
+            "exited": true
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 29964,
+            "exited": true
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 30346,
+            "exited": true
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 31669,
+            "exited": true
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 10475,
             "exited": false
         }
     ],
@@ -108,6 +108,6 @@
         "Behavior": 0
     },
     "m_Filter": "",
-    "m_FilterIsRegularExpression": false,
+    "m_FilterIsRegularExpression": true,
     "m_SymbolPaths": []
 }
