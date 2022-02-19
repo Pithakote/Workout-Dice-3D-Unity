@@ -5,9 +5,9 @@ using UnityEngine.Advertisements;
 public class AdsManager : MonoBehaviour
 {
 #if UNITY_ANDROID
-    string gameID = "4549061";
+    string gameID = "4607713";
 #elif UNITY_IOS
-    string gameID = "4549060";
+    string gameID = "4607712";
 #endif
     [SerializeField]
     int numberOfTimesAdHasRun = 0;
@@ -37,9 +37,9 @@ public class AdsManager : MonoBehaviour
                 Debug.Log("Ad has run for less than 3 times. current run is: " + numberOfTimesAdHasRun);
                 Debug.Log("Ad is running");
                 
-                if (Advertisement.IsReady("Custom_Interstitial"))
+                if (Advertisement.IsReady("Interstitial_Android"))
                 {
-                    Advertisement.Show("Custom_Interstitial");
+                    Advertisement.Show("Interstitial_Android");
                 }
             }
             else
@@ -51,10 +51,10 @@ public class AdsManager : MonoBehaviour
 
     public void ShowBanner()
     {
-        if (Advertisement.IsReady("Custom_Banner"))
+        if (Advertisement.IsReady("Banner_Android"))
         {
             Advertisement.Banner.SetPosition(BannerPosition.BOTTOM_CENTER);
-            Advertisement.Banner.Show("Custom_Banner");
+            Advertisement.Banner.Show("Banner_Android");
         }
         else
         {

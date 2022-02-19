@@ -72,6 +72,9 @@ public class GPGSManager : MonoSingleton<GPGSManager>
 
     public void OpenCloudSave(Action<SavedGameRequestStatus, ISavedGameMetadata> callback, Action<PlayServiceError> errorCallback = null)
     {
+        if (!Social.localUser.authenticated)
+            return;
+
         PlayServiceError error = global::PlayServiceError.None;
         if (!Social.localUser.authenticated)
             error |= global::PlayServiceError.NotAuthenticated;
