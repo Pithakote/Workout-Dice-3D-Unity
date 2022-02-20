@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     Toggle _audioToggle, _exercisingGuy;
     [Header("Error Texts")]
     [SerializeField]
-    TMP_Text savingErrorText, loadingErrorText;
+    TMP_Text savingErrorText, loadingErrorText, signingInErrorText;
     [Header("Error UIs")]
     [SerializeField]
     GameObject signingIn, signingInUnsuccessful,
@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour
 
     public TMP_Text SavingErrorText {get {return savingErrorText;}}
     public TMP_Text LoadingErrorText {get {return loadingErrorText;}}
+    public TMP_Text SigningInErrorText { get {return signingInErrorText; }}
     public Toggle AudioToggle {get {return _audioToggle;}}
     public Toggle ExercisingGuy { get {return _exercisingGuy; }}
     public GameObject SigningIn { get { return signingIn; } }

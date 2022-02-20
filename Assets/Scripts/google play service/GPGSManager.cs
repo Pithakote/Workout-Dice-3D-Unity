@@ -22,7 +22,8 @@ public class GPGSManager : MonoSingleton<GPGSManager>
     [SerializeField]
     LevelManager levelManager;
 
-    Action SigningInError, SigningInSuccess;
+    Action <string>SigningInError;
+    Action SigningInSuccess;
     public Action<GameObject , TMP_Text , string > NoInternetError;
     private void Awake()
     {
@@ -31,15 +32,11 @@ public class GPGSManager : MonoSingleton<GPGSManager>
         Debug.Log("Date day is: " + DateTime.Now.Date.ToString("dd"));
         Debug.Log("Date month is: " + DateTime.Now.Date.ToString("MM"));
         Debug.Log("Date year is: " + DateTime.Now.Date.ToString("yyyy"));
-        PlayGamesClientConfiguration.Builder builder = new PlayGamesClientConfiguration.Builder();
+       
 
-        //for enabling save games
-        if (enableSaveGame)
-            builder.EnableSavedGames();
+       
 
-        PlayGamesPlatform.InitializeInstance(builder.Build());
-        PlayGamesPlatform.DebugLogEnabled = true;
-        PlayGamesPlatform.Activate();
+        
 
        
     }
@@ -55,7 +52,16 @@ public class GPGSManager : MonoSingleton<GPGSManager>
         SigningInSuccess += SigningInSuccessVoid;
         NoInternetError += OnNoInternetError;
         levelManager = instance.LevelManager;
-//#if UNITY_ANDROID
+
+
+        PlayGamesClientConfiguration.Builder builder = new PlayGamesClientConfiguration.Builder();
+        //for enabling save games
+        if (enableSaveGame)
+            builder.EnableSavedGames();
+        //#if UNITY_ANDROID
+        PlayGamesPlatform.InitializeInstance(builder.Build());
+        PlayGamesPlatform.DebugLogEnabled = true;
+        PlayGamesPlatform.Activate();
         SignIn(SigningInSuccess, SigningInError);
 //#endif
     }
@@ -117,9 +123,10 @@ public class GPGSManager : MonoSingleton<GPGSManager>
         levelManager.SetText(levelManager.SavingErrorText, error.ToString());
         levelManager.ToggleInformationScreens(levelManager.SavingScreenUnsucessful, true);
     }
-    void SigningInErrorVoid()
+    void SigningInErrorVoid(string error)
     {
         levelManager.ToggleInformationScreens(levelManager.SigningIn, false);
+        levelManager.SetText(levelManager.SigningInErrorText, error.ToString());
         levelManager.ToggleInformationScreens(levelManager.SigningInUnsuccessful, true);
     }
     void SigningInSuccessVoid()
@@ -129,7 +136,7 @@ public class GPGSManager : MonoSingleton<GPGSManager>
         levelManager.ToggleInformationScreens(levelManager.MainMenuUI, true);
     }
     #endregion
-    public void SignIn(Action successCallback = null, Action errorCallback = null)
+    public void SignIn(Action successCallback = null, Action <string> errorCallback = null)
     {
         levelManager.ToggleInformationScreens(levelManager.SigningIn, true);
         try
@@ -157,7 +164,7 @@ public class GPGSManager : MonoSingleton<GPGSManager>
         catch (Exception e)
         {
             Debug.Log("SIGNING IN EXCEPTION: "+e);
-            errorCallback?.Invoke();
+            errorCallback?.Invoke(e.ToString());
         }
     }
 

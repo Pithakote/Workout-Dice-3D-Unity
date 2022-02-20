@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "e4be8546",
         "name": "com.momointeractive.workoutdice3d",
-        "processId": 24213,
+        "processId": 26417,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -126,6 +126,12 @@
             "deviceId": "e4be8546",
             "name": "com.momointeractive.workoutdice3d",
             "processId": 24213,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 26417,
             "exited": false
         }
     ],
