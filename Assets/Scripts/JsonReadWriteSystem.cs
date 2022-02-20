@@ -8,29 +8,42 @@ using GooglePlayGames.BasicApi;
 using UnityEngine.SocialPlatforms;
 using GooglePlayGames.BasicApi.SavedGame;
 using GooglePlayGames.BasicApi.Events;
+using System.Collections;
+
 public class JsonReadWriteSystem : MonoSingleton<JsonReadWriteSystem>
-{
+{    
     [SerializeField]
     Toggle audioToggle, exerciseGuyToggle;
     OptionsData dataHoldingObject, oData;
     BinaryFormatter formatter;
     public Action<SavedGameRequestStatus> OnSave;
     public Action<SavedGameRequestStatus> OnLoad;
+    public Action<PlayServiceError> OnLoadError;
+    public Action<PlayServiceError> OnSaveError;
+    GameManager gameManagerInstance;
+    LevelManager levelManager;
     private void Awake()
     {
         formatter = new BinaryFormatter();
-        oData = new OptionsData();
+        oData = new OptionsData();       
     }
-
+    private void Start()
+    {
+        gameManagerInstance = GameManager.Instance;
+        levelManager = gameManagerInstance.LevelManager;
+        audioToggle = levelManager.AudioToggle;
+        exerciseGuyToggle = levelManager.ExercisingGuy;
+    }
     public void LoadCloudData()
     {
-        LoadFromCloud();
+        LoadFromCloud(OnLoadError);
     }
     public void SaveToJson()
     {
       //  OptionsData oData = new OptionsData();
-        oData.isAudioPlaying = audioToggle.isOn;
-        oData.isGuyExercising = exerciseGuyToggle.isOn;
+        oData.isAudioPlaying = levelManager.AudioToggle.isOn;
+        oData.isGuyExercising = levelManager.ExercisingGuy.isOn;
+
         oData.savedTime = DateTime.Now.TimeOfDay.ToString();
         string path = Application.persistentDataPath + "/data.qnd";
        // BinaryFormatter formatter = new BinaryFormatter();
@@ -82,11 +95,27 @@ public class JsonReadWriteSystem : MonoSingleton<JsonReadWriteSystem>
             return (OptionsData)formatter.Deserialize(ms);
         }
     }
-
-    //google cloud
-    public void SaveToCloud(Action<PlayServiceError> errorCalback = null)
+    IEnumerator CallingSaveLoad(GameObject gameObject, bool show)
     {
-        GPGSManager.instance.OpenCloudSave(OnSaveResponse, errorCalback);
+        yield return new WaitForSeconds(1);
+        levelManager.ToggleInformationScreens(gameObject, show);
+    }
+    //google cloud
+    public void SaveToCloud(out bool authenticated, Action<PlayServiceError> errorCalback = null)
+    {
+       
+        levelManager.ToggleInformationScreens(levelManager.SavingScreen, true);
+        GPGSManager.instance.OpenCloudSave(levelManager.SavingScreenUnsucessful,levelManager.SavingErrorText, out authenticated, OnSaveResponse, errorCalback);
+
+        if (authenticated)
+        {
+            StartCoroutine(CallingSaveLoad(levelManager.SavingScreen, false));
+        }
+        else
+        {
+            levelManager.ToggleInformationScreens(levelManager.SavingScreen, false);
+        }
+      
     }
 
     void OnSaveResponse(SavedGameRequestStatus status, ISavedGameMetadata meta)
@@ -110,7 +139,16 @@ public class JsonReadWriteSystem : MonoSingleton<JsonReadWriteSystem>
 
     public void LoadFromCloud(Action<PlayServiceError> errorCalback = null)
     {
-        GPGSManager.instance.OpenCloudSave(OnLoadResponse, errorCalback);
+        levelManager.ToggleInformationScreens(levelManager.LoadingDataScreen, true);
+        GPGSManager.instance.OpenCloudSave(levelManager.LoadingDataUnsuccessful, levelManager.LoadingErrorText, out bool authenticated, OnLoadResponse, errorCalback);
+        if (authenticated)
+        {
+            StartCoroutine(CallingSaveLoad(levelManager.LoadingDataScreen, false));
+        }
+        else
+        {
+            levelManager.ToggleInformationScreens(levelManager.LoadingDataScreen, false);
+        }
     }
     void OnLoadResponse(SavedGameRequestStatus status, ISavedGameMetadata meta)
     {

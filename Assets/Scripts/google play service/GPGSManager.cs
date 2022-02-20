@@ -8,7 +8,7 @@ using UnityEngine.SocialPlatforms;
 using TMPro;
 using GooglePlayGames.BasicApi.SavedGame;
 using System;
-
+using UnityEngine.Networking;
 public class GPGSManager : MonoSingleton<GPGSManager>
 {
     [SerializeField] bool enableSaveGame = true;
@@ -19,7 +19,11 @@ public class GPGSManager : MonoSingleton<GPGSManager>
 
     [SerializeField]
     GameManager instance;
+    [SerializeField]
+    LevelManager levelManager;
 
+    Action SigningInError, SigningInSuccess;
+    public Action<GameObject , TMP_Text , string > NoInternetError;
     private void Awake()
     {
         Debug.Log("Hour of day is: "+ DateTime.Now.ToString("HH"));
@@ -36,30 +40,123 @@ public class GPGSManager : MonoSingleton<GPGSManager>
         PlayGamesPlatform.InitializeInstance(builder.Build());
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
+
+       
     }
     private void Start()
     {
         instance = GameManager.Instance;
-#if UNITY_ANDROID
-        SignIn();
-#endif
+
+        //instance.SaveSystem.OnSave += AfterSave;
+        //instance.SaveSystem.OnLoad += AfterLoad;
+        instance.SaveSystem.OnLoadError += OnLoadPlayServiceError;
+        instance.SaveSystem.OnSaveError += OnSavePlayServiceError;
+        SigningInError += SigningInErrorVoid;
+        SigningInSuccess += SigningInSuccessVoid;
+        NoInternetError += OnNoInternetError;
+        levelManager = instance.LevelManager;
+//#if UNITY_ANDROID
+        SignIn(SigningInSuccess, SigningInError);
+//#endif
     }
+    #region ErrorHandling
+    void OnNoInternetError(GameObject ErrorUI, TMP_Text textToSetTo, string text)
+    {
+        levelManager.ToggleInformationScreens(levelManager.MainMenuUI, false);
+        levelManager.ToggleInformationScreens(ErrorUI, true);
+        levelManager.SetText(textToSetTo,text);
+    }
+    void AfterSave(SavedGameRequestStatus status)
+    {
+        switch (status)
+        {
+            case SavedGameRequestStatus.Success:
+                {
+                    levelManager.ToggleInformationScreens(levelManager.SavingScreen, false);
+                    //levelManager.ToggleInformationScreens(levelManager.MainMenuUI, true);
+                    break;
+                }
+            default:
+                {
+                    levelManager.SetText(levelManager.SavingErrorText, status.ToString());
+                    levelManager.ToggleInformationScreens(levelManager.SavingScreen, false);
+                    levelManager.ToggleInformationScreens(levelManager.SavingScreenUnsucessful, true);
+                    break;
+                }
+        }
+    }
+
+    void AfterLoad(SavedGameRequestStatus status)
+    {
+        switch (status)
+        {
+            
+            case SavedGameRequestStatus.Success:
+                {
+                    levelManager.ToggleInformationScreens(levelManager.LoadingDataScreen, false);
+                    //levelManager.ToggleInformationScreens(levelManager.MainMenuUI, true);
+                    break;
+                }
+            default:
+                {
+                    levelManager.SetText(levelManager.LoadingErrorText, status.ToString());
+                    levelManager.ToggleInformationScreens(levelManager.LoadingDataScreen, false);
+                    levelManager.ToggleInformationScreens(levelManager.LoadingDataUnsuccessful, true);
+                    break;
+                }
+        }
+    }
+
+    void OnLoadPlayServiceError(PlayServiceError error)
+    {
+        levelManager.SetText(levelManager.LoadingErrorText, error.ToString());
+        levelManager.ToggleInformationScreens(levelManager.LoadingDataUnsuccessful, true);
+    }
+    void OnSavePlayServiceError(PlayServiceError error)
+    {
+        levelManager.SetText(levelManager.SavingErrorText, error.ToString());
+        levelManager.ToggleInformationScreens(levelManager.SavingScreenUnsucessful, true);
+    }
+    void SigningInErrorVoid()
+    {
+        levelManager.ToggleInformationScreens(levelManager.SigningIn, false);
+        levelManager.ToggleInformationScreens(levelManager.SigningInUnsuccessful, true);
+    }
+    void SigningInSuccessVoid()
+    {
+        Debug.Log("SigningInSuccessVoid called");
+        levelManager.ToggleInformationScreens(levelManager.SigningIn, false);
+        levelManager.ToggleInformationScreens(levelManager.MainMenuUI, true);
+    }
+    #endregion
     public void SignIn(Action successCallback = null, Action errorCallback = null)
     {
+        levelManager.ToggleInformationScreens(levelManager.SigningIn, true);
         try
         {
-            Social.localUser.Authenticate((bool success) =>
+
+            PlayGamesPlatform.Instance.Authenticate(SignInInteractivity.CanPromptOnce, (code) =>
             {
-                if (success)
+                if (code == SignInStatus.Success)
                 {
+                    levelManager.ToggleInformationScreens(levelManager.SigningIn, false);
+                    Debug.Log("SigningInSuccessVoid called befoe invoke");
                     successCallback?.Invoke();
+                    Debug.Log("SigningInSuccessVoid called after invoke");
                     instance.SaveSystem.LoadCloudData();
                 }
-            });
+                else
+                {
+                    levelManager.ToggleInformationScreens(levelManager.SigningIn, false);
+                    levelManager.ToggleInformationScreens(levelManager.AuthenticationFailedUI, true);
+                    Debug.Log("Unsuccessful in authenticating");
+                }
+            }
+            );
         }
         catch (Exception e)
         {
-            Debug.Log(e);
+            Debug.Log("SIGNING IN EXCEPTION: "+e);
             errorCallback?.Invoke();
         }
     }
@@ -70,15 +167,23 @@ public class GPGSManager : MonoSingleton<GPGSManager>
             PlayGamesPlatform.Instance.SignOut();
     }
 
-    public void OpenCloudSave(Action<SavedGameRequestStatus, ISavedGameMetadata> callback, Action<PlayServiceError> errorCallback = null)
+    public void OpenCloudSave(GameObject ErrorUI, TMP_Text saveloaderrorText, out bool isAuthenticated, Action<SavedGameRequestStatus, ISavedGameMetadata> callback, Action<PlayServiceError> errorCallback = null)
     {
-        if (!Social.localUser.authenticated)
-            return;
+      
+
 
         PlayServiceError error = global::PlayServiceError.None;
-        if (!Social.localUser.authenticated)
+        if (!PlayGamesPlatform.Instance.IsAuthenticated())
+        {
             error |= global::PlayServiceError.NotAuthenticated;
-        if(PlayGamesClientConfiguration.DefaultConfiguration.EnableSavedGames)
+            errorCallback?.Invoke(error);
+            isAuthenticated = false;
+            return;
+        }
+        else
+            isAuthenticated = true;
+
+        if (PlayGamesClientConfiguration.DefaultConfiguration.EnableSavedGames)
             error |= global::PlayServiceError.SaveGameNotEnabled;
         if(string.IsNullOrWhiteSpace(cloudSaveName))
             error |= global::PlayServiceError.CloudSaveNameNotSet;
@@ -86,12 +191,39 @@ public class GPGSManager : MonoSingleton<GPGSManager>
             errorCallback?.Invoke(error);
 
         var platform = (PlayGamesPlatform)Social.Active;
-     
-        //string finalSaveName = cloudSaveName +
-        //                        "Date"+ DateTime.Now.Date.ToString("dd")+ DateTime.Now.Date.ToString("MM")+ DateTime.Now.Date.ToString("yyyy")+
-        //                        "Time"+ DateTime.Now.ToString("HH") + DateTime.Now.ToString("mm");
         platform.SavedGame.OpenWithAutomaticConflictResolution(cloudSaveName, dataSource, conflictStrategy, callback);
+
+        StartCoroutine(CheckInternet((isConnected) =>
+        {
+            if (!isConnected)
+            {
+                NoInternetError.Invoke(ErrorUI, saveloaderrorText, "Internet not available. Saving and Loading will not work on your account");
+                return;
+            }
+            else
+            {
+                levelManager.ToggleInformationScreens(levelManager.MainMenuUI, true);
+                Debug.Log("Connected to internet");
+            }
+        }));
     }
+
+    public IEnumerator CheckInternet(Action <bool> Action)
+    {
+        UnityWebRequest request = new UnityWebRequest("www.google.com");
+        yield return request.SendWebRequest();
+
+        if (request.error != null)
+        {
+            Action(false);
+        }
+        else
+        {
+            Action(true);
+        }
+       
+    }
+
 }
 
 public enum PlayServiceError : byte
@@ -102,3 +234,7 @@ public enum PlayServiceError : byte
     SaveGameNotEnabled = 4,
     CloudSaveNameNotSet = 8,
 }
+
+
+
+

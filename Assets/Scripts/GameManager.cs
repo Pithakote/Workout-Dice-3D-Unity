@@ -9,12 +9,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     JsonReadWriteSystem saveSystem;
     private static GameManager  instance, duplicateInstance;
-
+    [SerializeField]
+    LevelManager levelManager;
     [SerializeField]
     ThrowHandler throwHandler;
 
     public CameraManager cameraManagerGetter { get { return cameraManager; } }
     public JsonReadWriteSystem SaveSystem { get { return saveSystem; } }
+    public LevelManager LevelManager { get { return levelManager; } }
     public static GameManager Instance
     {
         get
@@ -33,7 +35,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-       
+
+        if (levelManager == null)
+            levelManager = FindObjectOfType<LevelManager>();
     }
 
 

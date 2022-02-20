@@ -1,31 +1,13 @@
 {
-    "m_SelectedDeviceId": "NNCEPZ7DYDBUEIO7",
+    "m_SelectedDeviceId": "e4be8546",
     "m_SelectedPackage": {
-        "deviceId": "NNCEPZ7DYDBUEIO7",
+        "deviceId": "e4be8546",
         "name": "com.momointeractive.workoutdice3d",
-        "processId": 10475,
+        "processId": 24213,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "net.oneplus.launcher",
-            "processId": 32409,
-            "exited": false
-        },
-        {
-            "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "com.momointeractive.workoutdice3d",
-            "processId": 23156,
-            "exited": true
-        },
-        {
-            "deviceId": "NNCEPZ7DYDBUEIO7",
-            "name": "com.oneplus.deskclock",
-            "processId": 13285,
-            "exited": false
-        },
         {
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "com.momointeractive.workoutdice3d",
@@ -54,6 +36,96 @@
             "deviceId": "NNCEPZ7DYDBUEIO7",
             "name": "com.momointeractive.workoutdice3d",
             "processId": 10475,
+            "exited": true
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.oneplus.deskclock",
+            "processId": 14353,
+            "exited": false
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 6077,
+            "exited": false
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 8086,
+            "exited": false
+        },
+        {
+            "deviceId": "NNCEPZ7DYDBUEIO7",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 12293,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "net.oneplus.launcher",
+            "processId": 3270,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "com.android.settings",
+            "processId": 6045,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 3615,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 5496,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 8030,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 13155,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 16457,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 16952,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 18683,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 21638,
+            "exited": false
+        },
+        {
+            "deviceId": "e4be8546",
+            "name": "com.momointeractive.workoutdice3d",
+            "processId": 24213,
             "exited": false
         }
     ],

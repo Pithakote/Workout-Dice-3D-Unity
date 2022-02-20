@@ -19,11 +19,12 @@ public class Options : MonoBehaviour
 
     [SerializeField]
     GameObject mainMenuCanvas, optionsCanvas, creditsCanvas;
-
+    GameManager gameManagerInstance;
     private void Start()
     {
         //jsonFile.LoadFromJson();
         //jsonFile.LoadCloudData();
+        gameManagerInstance = GameManager.Instance;
     }
     public void ToggleMusic(bool tog)
     {
@@ -43,10 +44,12 @@ public class Options : MonoBehaviour
 
     public void GoBack()
     {
-       // jsonFile.SaveToJson();
-        jsonFile.SaveToCloud();
-        mainMenuCanvas.SetActive(true);
+        // jsonFile.SaveToJson();
         optionsCanvas.SetActive(false);
+        jsonFile.SaveToCloud(out bool authenticated, gameManagerInstance.SaveSystem.OnSaveError);
+       // if (!authenticated)
+       //     return;
+        //mainMenuCanvas.SetActive(true);
     }
     public void GoToOptions()
     {
