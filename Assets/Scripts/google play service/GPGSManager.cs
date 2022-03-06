@@ -45,7 +45,7 @@ public class GPGSManager : MonoSingleton<GPGSManager>
         instance = GameManager.Instance;
 
         //instance.SaveSystem.OnSave += AfterSave;
-        //instance.SaveSystem.OnLoad += AfterLoad;
+        instance.SaveSystem.OnLoad += AfterLoad;
         instance.SaveSystem.OnLoadError += OnLoadPlayServiceError;
         instance.SaveSystem.OnSaveError += OnSavePlayServiceError;
         SigningInError += SigningInErrorVoid;
