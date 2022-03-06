@@ -18,7 +18,7 @@ public class Options : MonoBehaviour
     GameObject exercisingGuy;
 
     [SerializeField]
-    GameObject mainMenuCanvas, optionsCanvas, creditsCanvas;
+    GameObject mainMenuCanvas, optionsCanvas, creditsCanvas, customDiceCanvas;
     GameManager gameManagerInstance;
     private void Start()
     {
@@ -67,6 +67,17 @@ public class Options : MonoBehaviour
         creditsCanvas.SetActive(true);
     }
 
+    public void GoToMainMenuFromCustomDice()
+    {
+        mainMenuCanvas.SetActive(true);
+        customDiceCanvas.SetActive(false);
+    }
+
+    public void GoToCustomDice()
+    {
+        mainMenuCanvas.SetActive(false);
+        customDiceCanvas.SetActive(true);
+    }
     public void CreditsOpenURL(string urlString)
     {
         Application.OpenURL(urlString);
