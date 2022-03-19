@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "160522404789",
+    "project_id": "workout-dice-3d-31913497",
+    "storage_bucket": "workout-dice-3d-31913497.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160522404789:android:5f681955f034782ee34ffc",
+        "android_client_info": {
+          "package_name": "com.momointeractive.workoutdice3d"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160522404789-3f6rar67cba5p3u7la1av5d0716ujk1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgcTNZOMxj821j7XxMe-RzDwkUwBAiPvA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160522404789-3f6rar67cba5p3u7la1av5d0716ujk1l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -82,4 +82,9 @@ public class Options : MonoBehaviour
     {
         Application.OpenURL(urlString);
     }
+
+    public void GoToPrivacyPolicy()
+    {
+        CreditsOpenURL("http://www.sites.google.com/view/momointeractiveprivacypolicy/home");
+    }
 }
