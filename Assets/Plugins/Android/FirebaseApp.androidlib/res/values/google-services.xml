@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_android_client_id">
   <string name="gcm_defaultSenderId" translatable="false">160522404789</string>
   <string name="google_storage_bucket" translatable="false">workout-dice-3d-31913497.appspot.com</string>
   <string name="project_id" translatable="false">workout-dice-3d-31913497</string>
   <string name="google_api_key" translatable="false">AIzaSyBgcTNZOMxj821j7XxMe-RzDwkUwBAiPvA</string>
   <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBgcTNZOMxj821j7XxMe-RzDwkUwBAiPvA</string>
   <string name="google_app_id" translatable="false">1:160522404789:android:5f681955f034782ee34ffc</string>
-  <string name="default_web_client_id" translatable="false">160522404789-3f6rar67cba5p3u7la1av5d0716ujk1l.apps.googleusercontent.com</string>
+  <string name="default_android_client_id" translatable="false">160522404789-igdtsbbknpp7tlad52h73fp9jot2k22g.apps.googleusercontent.com</string>
 </resources>

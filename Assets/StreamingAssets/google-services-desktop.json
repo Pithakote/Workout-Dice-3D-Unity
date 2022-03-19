@@ -14,8 +14,12 @@
       },
       "oauth_client": [
         {
-          "client_id": "160522404789-3f6rar67cba5p3u7la1av5d0716ujk1l.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "160522404789-igdtsbbknpp7tlad52h73fp9jot2k22g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.momointeractive.workoutdice3d",
+            "certificate_hash": "20028c6443e4f7d846e125053e7bb59aeff48007"
+          }
         }
       ],
       "api_key": [
@@ -25,12 +29,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "160522404789-3f6rar67cba5p3u7la1av5d0716ujk1l.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
