@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 public class AdsManager : MonoBehaviour
 {
+
 #if UNITY_ANDROID
     string gameID = "4607713";
 #elif UNITY_IOS
-    string gameID = "4607712";
+     gameID = "4607712";
 #endif
     [SerializeField]
     int numberOfTimesAdHasRun = 0;
