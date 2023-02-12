@@ -38,7 +38,7 @@ namespace GooglePlayGames {
 
         public const string ApplicationId = "160522404789"; // Filled in automatically
         public const string IosClientId = "__IOS_CLIENTID__"; // Filled in automatically
-        public const string WebClientId = "160522404789-osul80okm85iu85q6ovvge174moppa0m.apps.googleusercontent.com"; // Filled in automatically
+        public const string WebClientId = "160522404789-l5g42aiovkvod042hocvdfeaee0qusad.apps.googleusercontent.com"; // Filled in automatically
         public const string NearbyConnectionServiceId = "com.momointeractive.workoutdice3d";
 
         public static bool ApplicationIdInitialized() {

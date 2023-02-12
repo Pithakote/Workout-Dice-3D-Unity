@@ -8478,7 +8478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfTimesAdHasRun: 0
-  testMode: 0
+  testMode: 1
 --- !u!4 &1109411737
 Transform:
   m_ObjectHideFlags: 0
