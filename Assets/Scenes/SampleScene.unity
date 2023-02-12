@@ -8477,8 +8477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33c888667f79474482ff437647d7fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bannerPosition: 4
   numberOfTimesAdHasRun: 0
-  testMode: 1
+  testMode: 0
 --- !u!4 &1109411737
 Transform:
   m_ObjectHideFlags: 0
